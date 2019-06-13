@@ -934,6 +934,7 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  	}
 +	if (pp->phylink)
 +		phylink_destroy(pp->phylink);
+ err_free_stats:
  	free_percpu(pp->stats);
  err_free_ports:
  	free_percpu(pp->ports);
