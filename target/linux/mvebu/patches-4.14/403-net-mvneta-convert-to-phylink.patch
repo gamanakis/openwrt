@@ -928,12 +928,13 @@ Signed-off-by: Russell King <rmk+kernel@arm.linux.org.uk>
  	return 0;
  
  err_netdev:
-@@ -4384,16 +4490,14 @@ err_netdev:
+@@ -4384,16 +4490,15 @@ err_netdev:
  		mvneta_bm_pool_destroy(pp->bm_priv, pp->pool_short,
  				       1 << pp->id);
  	}
 +	if (pp->phylink)
 +		phylink_destroy(pp->phylink);
++err_free_stats:
  	free_percpu(pp->stats);
  err_free_ports:
  	free_percpu(pp->ports);
